@@ -1,10 +1,10 @@
+import datetime
+import os
+import webbrowser
+
 import pyttsx3
 import speech_recognition as sr
-import datetime
 import wikipedia
-import webbrowser
-import os
-
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -12,22 +12,29 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
 
+def firefox():
+    os.system('firefox.exe')
+
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
+
 def shutdown():
-   user_input=input("Do You Want to Shut down Your Computer ? (yes/No):")
-   if user_input=='No':
-       exit()
-   else:
-       os.system("shutdown /s /t 1")
+    user_input = input("Do You Want to Shut down Your Computer ? (yes/No):")
+    if user_input == 'No':
+        exit()
+    else:
+        os.system("shutdown /s /t 1")
+
 
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour>=0 and hour<12:
+    if hour >= 0 and hour < 12:
         speak("Good Morning!")
 
-    elif hour>=12 and hour<18:
+    elif hour >= 12 and hour < 18:
         speak("Good Afternoon!")
 
     else:
@@ -35,14 +42,15 @@ def wishMe():
 
     speak("I am Jarvis Sir. Please tell me how may I help you")
 
+
 def takeCommand():
-    #It takes microphone input from the user and returns string output
+    # It takes microphone input from the user and returns string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
-
+        r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
 
     try:
@@ -55,7 +63,6 @@ def takeCommand():
         print("Say that again please...")
         return "None"
     return query
-
 
 
 if __name__ == "__main__":
@@ -81,11 +88,10 @@ if __name__ == "__main__":
 
         elif 'shut down' in query:
             shutdown()
-
+        elif 'open firefox' in query:
+            firefox()
 
 
         elif 'the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, the time is {strTime}")
-
-
