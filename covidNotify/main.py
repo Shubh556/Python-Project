@@ -27,7 +27,7 @@ if __name__ == "__main__":
         myDataStr = ""
         for tr in soup.find_all('tbody')[1].find_all('tr'):
             myDataStr += tr.get_text()
-        myDataStr = myDataStr[1:]
+        myDataStr = myDataStr[1:0]
         itemList = myDataStr.split("\n\n")
 
         states = ['Chandigarh', 'Telengana', 'Uttar Pradesh']
