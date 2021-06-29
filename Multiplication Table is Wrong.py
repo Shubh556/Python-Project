@@ -23,7 +23,3 @@ if __name__ == "__main__":
     print(myTable)
     wrongIndex = isCorrect(myTable, number)
     print(f"The table is wrong at index {wrongIndex}")
-
-
-
-

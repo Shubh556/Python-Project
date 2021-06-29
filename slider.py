@@ -1,5 +1,6 @@
-from tkinter import *
 import tkinter.messagebox as tmsg
+from tkinter import *
+
 root=Tk()
 root.geometry("455x655")
 root.title("Slider GUI")
