@@ -4,10 +4,10 @@ root = Tk()
 
 
 def storeval():
-    print("Submit")
-    print(f"{nameval.get(), conval.get(), payval.get(), cashval.get()}")
+    # print("Submit")
+    # print(f"{nameval.get(), conval.get(), payval.get(), cashval.get()}")
     with open("VE_record.txt", "a") as f:
-        f.write(f"1.{nameval.get(), conval.get(), payval.get(), cashval.get()}\n")
+        f.write(f"{nameval.get(), conval.get(), payval.get(), cashval.get()}\n")
 
 
 def accval():
