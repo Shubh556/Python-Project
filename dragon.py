@@ -7,5 +7,6 @@ pyautogui.click(button='left')
 pyautogui.moveTo(20,700)
 pyautogui.click(button='right')
 pyautogui.moveTo(20,628)
-pyautogui.press('enter')
+pyautogui.click(button='left')
+pyautogui.click(button='left')
                              
