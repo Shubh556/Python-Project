@@ -1,0 +1,15 @@
+import pygame
+import time
+pygame.init()
+window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+pygame.mixer.init()
+pygame.mixer.music.load('ratsasan.mp3')
+pygame.mixer.music.play()
+time.sleep(5)
+time.sleep(4)
+image = pygame.image.load('scr.jpg')
+window.blit(image, (0,0))
+pygame.display.update()
+pygame.mixer.music.load('scary.mp3')
+pygame.mixer.music.play()
+time.sleep(3.8)
